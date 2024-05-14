@@ -1,0 +1,14 @@
+http: 
+  middlewares:
+    nextcloud:
+      headers:
+        stsSeconds: 15552000
+        customFrameOptionsValue: 'SAMEORIGIN'
+        customResponseHeaders:
+          X-Robots-Tag: 'noindex,nofollow'
+    nextcloud-redirects:
+      redirectRegex:
+        permanent: true
+        regex: 'https://(.*)/.well-known/(card|cal)dav'
+        replacement: 'https://${1}/remote.php/dav/'
+

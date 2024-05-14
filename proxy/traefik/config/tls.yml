@@ -1,0 +1,6 @@
+tls:
+  certificates:
+  - certFile: /etc/traefik//certs/fullchain.cer
+    keyFile: /etc/traefik/certs/jonnyb.name.key
+  - certFile: /etc/traefik/certs/boeller.dev.fullchain.cer
+    keyFile: /etc/traefik/certs/boeller.dev.key

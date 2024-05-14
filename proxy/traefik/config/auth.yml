@@ -1,0 +1,10 @@
+http:
+  middlewares:
+    auth:
+      forwardAuth:
+        address: 'http://login:9091/api/verify?rd=https://login.jonnyb.name/' 
+        authResponseHeaders: 
+          - 'Remote-User'
+          - 'Remote-Name'
+          - 'Remote-Email'
+          - 'Remote-Groups'

@@ -1,0 +1,31 @@
+entryPoints:
+  web:
+    address: ':80'
+    http:
+      redirections:
+        entryPoint:
+          to: 'websecure'
+  websecure:    
+    address: ':443'
+    http:
+      tls: {}
+      middlewares:
+        - 'auth@file'
+    proxyProtocol:
+      insecure: true
+      trustedIPs:
+        - "172.21.0.1/32"
+
+log:
+  level: DEBUG
+
+providers:
+  file:
+    directory: '/etc/traefik/config'
+  docker:
+    exposedByDefault: false
+    network: 'homeserver_proxy'
+    defaultRule: 'Host(`{{ .Name | trimSuffix "-homeserver" }}.jonnyb.name`)'
+
+api:
+  dashboard: true

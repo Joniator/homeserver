@@ -1,0 +1,31 @@
+http:
+  routers:
+    unraid:
+      rule: 'Host(`unraid.jonnyb.name`)'
+      service: 'unraid'
+      entrypoints:
+        - 'websecure'
+
+    stash:
+      rule: 'Host(`stash.jonnyb.name`)'
+      service: 'stash'
+
+    homeassistant:
+      rule: 'Host(`homeassistant.jonnyb.name`)'
+      service: 'homeassistant'
+
+  services:
+    unraid:
+      loadBalancer:
+        servers:
+        - url: "http://tower"
+
+    stash:
+      loadBalancer:
+        servers:
+          - url: 'http://homeserver:9999'
+
+    homeassistant:
+      loadBalancer:
+        servers:
+          - url: 'http://homeassistant:8123'

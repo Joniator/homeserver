@@ -1,0 +1,7 @@
+http:
+  routers:
+    traefik:
+      rule: 'Host(`traefik.jonnyb.name`)'
+      service: 'api@internal'
+      entrypoints:
+        - 'websecure'

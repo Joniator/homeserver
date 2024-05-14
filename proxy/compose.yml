@@ -1,0 +1,28 @@
+services:
+  traefik:
+    image: 'traefik:v3.0'
+    restart: 'always'
+    env_file:
+      - '../homeserver.env'
+    dns: 192.168.188.1
+    networks:
+      - 'network'
+      - 'old_proxy'
+    ports:
+      - '192.168.188.53:80:80'
+      - '192.168.188.53:443:443'
+    volumes:
+      - 'traefik:/etc/traefik'
+      - './traefik/config:/etc/traefik/config:ro'
+      - './traefik/certs:/etc/traefik/certs:ro'
+      - './traefik/traefik.yml:/etc/traefik/traefik.yml:ro'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
+networks:
+  network:
+  old_proxy:
+    name: homeserver_proxy
+    external: true
+
+volumes:
+  traefik:

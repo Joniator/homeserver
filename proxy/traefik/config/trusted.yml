@@ -1,0 +1,4 @@
+http:
+  serversTransports:
+    trusted:
+      insecureSkipVerify: true
