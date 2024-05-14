@@ -25,7 +25,7 @@ providers:
   docker:
     exposedByDefault: false
     network: 'homeserver_proxy'
-    defaultRule: 'Host(`{{ .Name | trimSuffix "-homeserver" }}.jonnyb.name`)'
+    defaultRule: 'Host(`{{ coalesce (index .Labels "subdomain") (.Name | trimSuffix "-homeserver") }}.jonnyb.name`)'
 
 api:
   dashboard: true
