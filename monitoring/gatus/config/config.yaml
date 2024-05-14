@@ -1,0 +1,33 @@
+storage:
+  type: sqlite
+  path: /data/data.db
+
+endpoints:
+  - name: Plex
+    group: media
+    url: "https://plex.jonnyb.name/web/index.html#!/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Overseer
+    group: media
+    url: "https://overseer.jonnyb.name/"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: Unraid
+    group: network
+    url: "http://tower"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: HomeAssistant
+    group: network
+    url: "http://homeassistant:8123"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+

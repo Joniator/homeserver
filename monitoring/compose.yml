@@ -1,0 +1,25 @@
+services:
+  gatus:
+    image: 'twinproduction/gatus:latest'
+    restart: 'always'
+    env_file:
+      - '../homeserver.env'
+    networks:
+      - 'network'
+      - 'proxy_network'
+    volumes:
+      - 'gatus_data:/data'
+      - './gatus/config:/config'
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy_network
+      subdomain: up
+
+volumes:
+  gatus_data:
+
+networks:
+  network:
+  proxy_network:
+    external: true
+
