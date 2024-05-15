@@ -21,7 +21,6 @@ authentication_backend:
     disable: false
   file:
     path: '/config/users.yml'
-    watch: true
 
 access_control:
   default_policy: 'deny'
@@ -30,38 +29,19 @@ access_control:
       networks:
         - '192.168.188.0/24'
   rules:
-    - subject: group:admin
-      domain: '*'
-      policy: one_factor
-
     ###
     # Allow all for apps with own auth
     ###
     - domain:
-        - 'archive.jonnyb.name'
-        - 'cloud.jonnyb.name'
-        - 'emby.jonnyb.name'
-        - 'files.jonnyb.name'
-        - 'firefly.jonnyb.name'
-        - 'freshrss.jonnyb.name'
-        - 'homeassistant.jonnyb.name'
-        - 'influxdb.jonnyb.name'
-        - 'jellyfin.jonnyb.name'
-        - 'login.jonnyb.name'
-        - 'metube.jonnyb.name'
-        - 'monitor.jonnyb.name'
-        - 'mason.jonnyb.name'
-        - 'notes.jonnyb.name'
-        - 'overseer.jonnyb.name'
-        - 'pgadmin.jonnyb.name'
+        - 'auth.jonnyb.name'
         - 'plex.jonnyb.name'
         - 'recipes.jonnyb.name'
-        - 'testpublic.jonnyb.name'
-        - 'unraid.jonnyb.name'
-        - 'wiki.jonnyb.name'
-        - 'wireguard.jonnyb.name'
-        - 'ytdlp.jonnyb.name'
       policy: bypass
+
+    - subject: group:admin
+      domain:
+        - '*.jonnyb.name'
+      policy: one_factor
 
     ###
     # Allow protected API-Access
@@ -70,12 +50,11 @@ access_control:
         - 'movies.jonnyb.name'
         - 'sabnzbd.jonnyb.name'
         - 'series.jonnyb.name'
-      policy: bypass
       resources:
         - '^/api.*'
+      policy: bypass
 
 session:
-  secret: 'not in use without redis'
   name: 'authelia_session'
   same_site: 'lax'
   inactivity: '5m'
@@ -89,6 +68,8 @@ session:
       inactivity: '5 minutes'
       expiration: '1 hour'
       remember_me: '1 month'
+  redis:
+    host: redis
 
 storage:
   local:

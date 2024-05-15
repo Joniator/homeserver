@@ -24,18 +24,25 @@ services:
       - 'authelia.env'
     networks:
       - 'network'
+      - 'cache'
     volumes:
       - 'authelia:/var/lib/authelia'
       - './authelia/users.yml:/config/users.yml'  # not read only to allow password changes
-      - './authelia/configuration.yml:/config:ro'
+      - './authelia/configuration.yml:/config/configuration.yml:ro'
       - './authelia/secrets:/secrets:ro'
     labels:
       traefik.enable: true
       traefik.docker.network: proxy_network
       subdomain: auth
 
+  redis:
+    image: 'redis:7-alpine'
+    networks:
+      - 'cache'
+
 networks:
   network:
+  cache:
   old_proxy:
     name: homeserver_proxy
     external: true
