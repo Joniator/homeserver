@@ -1,7 +1,0 @@
-users:
-  jonnyb:
-    displayname: Jonathan Boeckel
-    email: jboeckel@mailbox.org
-    password: ***REMOVED***
-    groups:
-      - admin
