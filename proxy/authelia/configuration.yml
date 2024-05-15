@@ -1,0 +1,103 @@
+# yamllint disable rule:comments-indentation
+---
+theme: 'dark'
+
+log:
+  level: 'debug'
+
+telemetry:
+  metrics:
+    enabled: false
+
+webauthn:
+  ## Disable WebAuthn.
+  disable: false
+
+identity_validation:
+  reset_password:
+
+authentication_backend:
+  password_reset:
+    disable: false
+  file:
+    path: '/config/users.yml'
+    watch: true
+
+access_control:
+  default_policy: 'deny'
+  networks:
+    - name: 'internal'
+      networks:
+        - '192.168.188.0/24'
+  rules:
+    - subject: group:admin
+      domain: '*'
+      policy: one_factor
+
+    ###
+    # Allow all for apps with own auth
+    ###
+    - domain:
+        - 'archive.jonnyb.name'
+        - 'cloud.jonnyb.name'
+        - 'emby.jonnyb.name'
+        - 'files.jonnyb.name'
+        - 'firefly.jonnyb.name'
+        - 'freshrss.jonnyb.name'
+        - 'homeassistant.jonnyb.name'
+        - 'influxdb.jonnyb.name'
+        - 'jellyfin.jonnyb.name'
+        - 'login.jonnyb.name'
+        - 'metube.jonnyb.name'
+        - 'monitor.jonnyb.name'
+        - 'mason.jonnyb.name'
+        - 'notes.jonnyb.name'
+        - 'overseer.jonnyb.name'
+        - 'pgadmin.jonnyb.name'
+        - 'plex.jonnyb.name'
+        - 'recipes.jonnyb.name'
+        - 'testpublic.jonnyb.name'
+        - 'unraid.jonnyb.name'
+        - 'wiki.jonnyb.name'
+        - 'wireguard.jonnyb.name'
+        - 'ytdlp.jonnyb.name'
+      policy: bypass
+
+    ###
+    # Allow protected API-Access
+    ###
+    - domain:
+        - 'movies.jonnyb.name'
+        - 'sabnzbd.jonnyb.name'
+        - 'series.jonnyb.name'
+      policy: bypass
+      resources:
+        - '^/api.*'
+
+session:
+  secret: 'not in use without redis'
+  name: 'authelia_session'
+  same_site: 'lax'
+  inactivity: '5m'
+  expiration: '1h'
+  remember_me: '1M'
+  cookies:
+    - name: 'authelia_session'
+      domain: 'jonnyb.name'
+      authelia_url: 'https://auth.jonnyb.name'
+      default_redirection_url: 'https://my.jonnyb.name'
+      inactivity: '5 minutes'
+      expiration: '1 hour'
+      remember_me: '1 month'
+
+storage:
+  local:
+    path: '/var/lib/authelia/db.sqlite3'
+
+notifier:
+  disable_startup_check: false
+  smtp:
+    address: 'smtp://smtp.mailbox.org'
+    username: 'jboeckel@mailbox.org'
+    sender: 'Authelia <jonnyb@mailbox.org>'
+    identifier: 'auth.jonnyb.name'

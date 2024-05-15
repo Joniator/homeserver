@@ -1,1 +1,3 @@
 traefik/certs/
+authelia.env
+authelia/secrets
