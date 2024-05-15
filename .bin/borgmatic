@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+sudo borgmatic -c /srv/infra/borgmatic/config.yml "$@"
