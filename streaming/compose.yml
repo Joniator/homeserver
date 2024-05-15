@@ -1,0 +1,28 @@
+services:
+  plex:
+    image: 'lscr.io/linuxserver/plex:1.40.2'
+    env_file:
+      - '../homeserver.env'
+      - 'plex.env'
+    networks:
+      - 'proxy_network'
+    volumes:
+      - 'plex:/config'
+      - '/mnt/media/Videos/Filme:/movies:ro'
+      - '/mnt/media/Videos/Serien:/tv:ro'
+      - '/mnt/media/Musik:/music:ro'
+    ports:
+      - '32400:32400'
+      - '32469:32469'
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: 'proxy_network'
+      traefik.http.services.plex-streaming.loadbalancer.server.port: '32400'
+      subdomain: 'plex'
+
+volumes:
+  plex:
+
+networks:
+  proxy_network:
+    external: true
