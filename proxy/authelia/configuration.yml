@@ -36,6 +36,19 @@ access_control:
         - 'auth.jonnyb.name'
         - 'plex.jonnyb.name'
         - 'recipes.jonnyb.name'
+        - 'homeassistant.jonnyb.name'
+      policy: bypass
+
+    ###
+    # Allow protected API-Access
+    ###
+    - domain:
+        - 'sabnzbd.jonnyb.name'
+        - 'index.jonnyb.name'
+        - 'sonarr.jonnyb.name'
+        - 'radarr.jonnyb.name'
+      resources:
+        - '^/api.*'
       policy: bypass
 
     - subject: group:admin
@@ -43,16 +56,6 @@ access_control:
         - '*.jonnyb.name'
       policy: one_factor
 
-    ###
-    # Allow protected API-Access
-    ###
-    - domain:
-        - 'movies.jonnyb.name'
-        - 'sabnzbd.jonnyb.name'
-        - 'series.jonnyb.name'
-      resources:
-        - '^/api.*'
-      policy: bypass
 
 session:
   name: 'authelia_session'
