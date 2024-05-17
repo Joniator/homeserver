@@ -1,0 +1,19 @@
+services:
+  homer:
+    image: 'b4bz/homer:latest'
+    restart: 'always'
+    user: 1000:1000
+    networks:
+      - 'proxy_network'
+    volumes:
+      - './homer:/www/assets'
+    ports:
+      - '8828:8080'
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy_network
+      subdomain: my
+
+networks:
+  proxy_network:
+    external: true

@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+SERVICE="$1"
+BASE_PATH="$(realpath "$(dirname "$0")/..")"
+
+URL="https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/$SERVICE.svg"
+
+if ! wget "$URL" -O "$BASE_PATH/services/homer/tools/$SERVICE.svg" &>/dev/null;
+then
+	echo "$SERVICE not found"
+	echo ""
+	echo "Check if the service is supported:"
+	echo "  - List: https://github.com/walkxcode/dashboard-icons/tree/main/svg"
+	echo "  - Previews: https://github.com/walkxcode/dashboard-icons/blob/main/ICONS.md"
+	exit 1
+fi;

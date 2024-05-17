@@ -1,0 +1,54 @@
+---
+# Homepage configuration
+# See https://fontawesome.com/v5/search for icons options
+
+title: "Homeserver"
+subtitle: "jonnyb.name"
+logo: "assets/catppuccin-logo.png"
+
+header: true
+footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>' # set false if you want to hide it.
+
+theme: default
+defaults:
+  colorTheme: dark
+stylesheet:
+  - assets/catppuccin-macchiato.css
+  - assets/catppuccin-latte.css
+
+links:
+  - name: "YouTube"
+    icon: "fab fa-youtube"
+    url: "https://www.youtube.com/"
+  - name: "Twitch"
+    icon: "fab fa-twitch"
+    url: "https://twitch.tv"
+
+services:
+  - name: "Home"
+    icon: "fas fa-home"
+    items:
+      - name: "HomeAssistant"
+        subtitle: "Home automation"
+        logo: "assets/tools/home-assistant.svg"
+        url: "https://homeassistant.jonnyb.name"
+      - name: "Mealie"
+        subtitle: "Recipes | Cook Book"
+        logo: "assets/tools/mealie.svg"
+        url: "https://recipes.jonnyb.name"
+
+  - name: "Media"
+    icon: "fas fa-film"
+    items:
+      - name: "Plex"
+        logo: "assets/tools/plex.svg"
+        subtitle: "Streaming service for movies and tv series"
+        url: "https://plex.jonnyb.name"
+      - name: "Overseerr"
+        logo: "assets/tools/overseerr.svg"
+        subtitle: "Tool to request movies or tv shows to download"
+        url: "https://overseerr.jonnyb.name"
+      - name: "Kavita"
+        subtitle: "Books, comics and mangas"
+        logo: "assets/tools/kavita.svg"
+        url: "https://read.jonnyb.name"

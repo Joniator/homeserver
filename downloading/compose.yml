@@ -3,7 +3,8 @@ services:
     image: 'lscr.io/linuxserver/sabnzbd:latest'
     environment:
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sabnzbd'
-      TP_THEME: plex
+      TP_COMMUNITY_THEME: 'true'
+      TP_THEME: 'catppuccin-macchiato'
     networks:
       - 'proxy_network'
       - 'usenet'
@@ -23,7 +24,8 @@ services:
     image: 'lscr.io/linuxserver/overseerr:latest'
     environment:
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:overseerr'
-      TP_THEME: plex
+      TP_COMMUNITY_THEME: 'true'
+      TP_THEME: 'catppuccin-macchiato'
     networks:
       - 'proxy_network'
       - 'usenet'
@@ -50,7 +52,8 @@ services:
     image: 'lscr.io/linuxserver/radarr:latest'
     environment:
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:radarr'
-      TP_THEME: plex
+      TP_COMMUNITY_THEME: 'true'
+      TP_THEME: 'catppuccin-macchiato'
     networks:
       - 'proxy_network'
       - 'usenet'
@@ -67,7 +70,8 @@ services:
     image: 'lscr.io/linuxserver/sonarr:latest'
     environment:
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sonarr'
-      TP_THEME: plex
+      TP_COMMUNITY_THEME: 'true'
+      TP_THEME: 'catppuccin-macchiato'
     networks:
       - 'proxy_network'
       - 'usenet'

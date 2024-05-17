@@ -30,23 +30,31 @@ access_control:
         - '192.168.188.0/24'
   rules:
     ###
+    # Public apps without auth
+    ###
+    - domain:
+        - 'my.jonnyb.name'
+      policy: bypass
+
+    ###
     # Allow all for apps with own auth
     ###
     - domain:
         - 'auth.jonnyb.name'
-        - 'plex.jonnyb.name'
-        - 'recipes.jonnyb.name'
         - 'homeassistant.jonnyb.name'
+        - 'plex.jonnyb.name'
+        - 'read.jonnyb.name'
+        - 'recipes.jonnyb.name'
       policy: bypass
 
     ###
     # Allow protected API-Access
     ###
     - domain:
-        - 'sabnzbd.jonnyb.name'
         - 'index.jonnyb.name'
-        - 'sonarr.jonnyb.name'
         - 'radarr.jonnyb.name'
+        - 'sabnzbd.jonnyb.name'
+        - 'sonarr.jonnyb.name'
       resources:
         - '^/api.*'
       policy: bypass

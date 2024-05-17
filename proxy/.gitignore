@@ -1,4 +1,4 @@
-traefik/certs/
 authelia.env
 authelia/secrets
 authelia/users.yml
+traefik/certs/
