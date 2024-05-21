@@ -61,6 +61,7 @@ access_control:
 
     - subject: group:admin
       domain:
+        - 'jonnyb.name'
         - '*.jonnyb.name'
       policy: one_factor
 
