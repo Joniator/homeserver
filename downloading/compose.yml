@@ -2,7 +2,10 @@ services:
   sabnzbd:
     image: 'lscr.io/linuxserver/sabnzbd:latest'
     environment:
+      TZ: 'Europe/Berlin'
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sabnzbd'
+      PUID: 1000
+      PGID: 1000
       TP_COMMUNITY_THEME: 'true'
       TP_THEME: 'catppuccin-macchiato'
     networks:
@@ -24,6 +27,9 @@ services:
     image: 'lscr.io/linuxserver/overseerr:latest'
     environment:
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:overseerr'
+      TZ: 'Europe/Berlin'
+      PUID: 1000
+      PGID: 1000
       TP_COMMUNITY_THEME: 'true'
       TP_THEME: 'catppuccin-macchiato'
     networks:
@@ -38,6 +44,8 @@ services:
 
   nzbhydra:
     image: 'lscr.io/linuxserver/nzbhydra2:latest'
+    environment:
+      TZ: 'Europe/Berlin'
     networks:
       - 'proxy_network'
       - 'usenet'
@@ -51,7 +59,10 @@ services:
   radarr:
     image: 'lscr.io/linuxserver/radarr:latest'
     environment:
+      TZ: 'Europe/Berlin'
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:radarr'
+      PUID: 1000
+      PGID: 1000
       TP_COMMUNITY_THEME: 'true'
       TP_THEME: 'catppuccin-macchiato'
     networks:
@@ -69,7 +80,10 @@ services:
   sonarr:
     image: 'lscr.io/linuxserver/sonarr:latest'
     environment:
+      TZ: 'Europe/Berlin'
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sonarr'
+      PUID: 1000
+      PGID: 1000
       TP_COMMUNITY_THEME: 'true'
       TP_THEME: 'catppuccin-macchiato'
     networks:

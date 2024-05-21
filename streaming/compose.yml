@@ -1,8 +1,9 @@
 services:
   plex:
     image: 'lscr.io/linuxserver/plex:1.40.2'
+    environment:
+      TZ: 'Europe/Berlin'
     env_file:
-      - '../homeserver.env'
       - 'plex.env'
     networks:
       - 'proxy_network'

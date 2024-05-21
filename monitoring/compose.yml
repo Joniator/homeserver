@@ -2,8 +2,8 @@ services:
   gatus:
     image: 'twinproduction/gatus:latest'
     restart: 'always'
-    env_file:
-      - '../homeserver.env'
+    environment:
+      TZ: 'Europe/Berlin'
     networks:
       - 'network'
       - 'proxy_network'
