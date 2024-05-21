@@ -3,8 +3,14 @@ services:
     image: 'lscr.io/linuxserver/plex:1.40.2'
     environment:
       TZ: 'Europe/Berlin'
+      PUID: 1000
+      PGID: 1000
+      VERSION: docker
+      DOCKER_MODS: ghcr.io/themepark-dev/theme.park:plex
+      TP_COMMUNITY_THEME: true
+      TP_THEME: catppuccin-macchiato
     env_file:
-      - 'plex.env'
+      - '.plex.env'
     networks:
       - 'proxy_network'
     volumes:
