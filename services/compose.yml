@@ -16,6 +16,23 @@ services:
       traefik.docker.network: proxy_network
       subdomain: my
 
+  mealie:
+    image: 'hkotel/mealie:latest'
+    restart: 'always'
+    environment:
+      TZ: 'Europe/Berlin'
+    env_file:
+      - mealie.env
+    networks:
+      - 'proxy_network'
+    volumes:
+      - 'mealie:/app/data'
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy_network
+      traefik.http.services.mealie-services.loadbalancer.server.port: '9000'
+      subdomain: 'recipes'
+
 volumes:
   mealie:
 

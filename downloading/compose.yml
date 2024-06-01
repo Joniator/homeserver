@@ -1,6 +1,7 @@
 services:
   sabnzbd:
     image: 'lscr.io/linuxserver/sabnzbd:latest'
+    restart: 'always'
     environment:
       TZ: 'Europe/Berlin'
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sabnzbd'
@@ -25,6 +26,7 @@ services:
 
   overseerr:
     image: 'lscr.io/linuxserver/overseerr:latest'
+    restart: 'always'
     environment:
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:overseerr'
       TZ: 'Europe/Berlin'
@@ -44,6 +46,7 @@ services:
 
   nzbhydra:
     image: 'lscr.io/linuxserver/nzbhydra2:latest'
+    restart: 'always'
     environment:
       TZ: 'Europe/Berlin'
     networks:
@@ -58,6 +61,7 @@ services:
 
   radarr:
     image: 'lscr.io/linuxserver/radarr:latest'
+    restart: 'always'
     environment:
       TZ: 'Europe/Berlin'
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:radarr'
@@ -79,6 +83,7 @@ services:
 
   sonarr:
     image: 'lscr.io/linuxserver/sonarr:latest'
+    restart: 'always'
     environment:
       TZ: 'Europe/Berlin'
       DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sonarr'

@@ -20,6 +20,7 @@ services:
 
   authelia:
     image: 'authelia/authelia:latest'
+    restart: 'always'
     environment:
       TZ: 'Europe/Berlin'
     env_file: 
@@ -39,6 +40,7 @@ services:
 
   redis:
     image: 'redis:7-alpine'
+    restart: 'always'
     networks:
       - 'cache'
 
