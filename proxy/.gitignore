@@ -3,3 +3,4 @@ authelia/secrets
 authelia/users.yml
 traefik/certs/
 traefik/config/secrets.yml
+protonwire
