@@ -14,11 +14,17 @@ http:
       rule: 'Host(`homeassistant.jonnyb.name`)'
       service: 'homeassistant'
 
+    nodered:
+      rule: 'Host(`nodered.jonnyb.name`)'
+      service: 'nodered'
+      middlewares:
+        - nodered_headers
+
   services:
     unraid:
       loadBalancer:
         servers:
-        - url: "http://tower"
+        - url: "http://192.168.188.51"
 
     stash:
       loadBalancer:
@@ -29,3 +35,9 @@ http:
       loadBalancer:
         servers:
           - url: 'http://homeassistant:8123'
+
+    nodered:
+      loadBalancer:
+        serversTransport: trusted
+        servers:
+          - url: 'https://homeassistant:1880'
