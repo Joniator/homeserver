@@ -4,6 +4,7 @@ services:
     restart: 'always'
     environment:
       TZ: 'Europe/Berlin'
+      DISCORD_WEBHOOK: ${DISCORD_WEBHOOK}
     networks:
       - 'network'
       - 'proxy_network'

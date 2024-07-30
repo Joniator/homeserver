@@ -1,33 +1,63 @@
+alerting:
+  discord:
+    webhook-url: ${DISCORD_WEBHOOK}
+
 storage:
   type: sqlite
   path: /data/data.db
 
+default_endpoint: &default_endpoint
+  interval: 5m
+  conditions:
+    - "[STATUS] == 200"
+  alerts:
+    - type: discord
+      description: Healthcheck failed
+      send-on-resolved: true
+
+default_endpoint_ssl: &default_endpoint_ssl
+  interval: 5m
+  conditions:
+    - "[STATUS] == 200"
+    - "[CERTIFICATE_EXPIRATION] > 92h"
+  alerts:
+    - type: discord
+      description: Healthcheck failed
+      send-on-resolved: true
+
 endpoints:
+  - name: Boeller-Blog
+    group: websites
+    url: "https://boeller.dev"
+    <<: *default_endpoint_ssl
+
+  - name: Faultier.family
+    group: websites
+    url: "https://faultier.family"
+    <<: *default_endpoint_ssl
+
+  - name: Tazed.club
+    group: websites
+    url: "https://tazed.club"
+    <<: *default_endpoint_ssl
+
   - name: Plex
     group: media
     url: "https://plex.jonnyb.name/web/index.html#!/"
-    interval: 5m
-    conditions:
-      - "[STATUS] == 200"
+    <<: *default_endpoint_ssl
 
-  - name: Overseer
+  - name: Overseerr
     group: media
-    url: "https://overseer.jonnyb.name/"
-    interval: 5m
-    conditions:
-      - "[STATUS] == 200"
+    url: "https://overseerr.jonnyb.name/"
+    <<: *default_endpoint_ssl
 
   - name: Unraid
     group: network
     url: "http://tower"
-    interval: 5m
-    conditions:
-      - "[STATUS] == 200"
+    <<: *default_endpoint
 
   - name: HomeAssistant
     group: network
     url: "http://homeassistant:8123"
-    interval: 5m
-    conditions:
-      - "[STATUS] == 200"
+    <<: *default_endpoint
 
