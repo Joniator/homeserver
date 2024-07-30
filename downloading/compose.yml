@@ -60,34 +60,11 @@ services:
       TP_COMMUNITY_THEME: 'true'
       TP_THEME: 'catppuccin-macchiato'
     network_mode: 'service:protonwire-qbt'
-    networks:
-      - 'proxy_network'
-      - 'usenet'
     volumes:
       - 'qbittorrent_config:/config'
       - 'qbittorrent_downloads:/downloads/qbittorrent'
       - 'sonarr_downloads:/sonarr'
       - 'radarr_downloads:/radarr'
-
-  overseerr:
-    image: 'lscr.io/linuxserver/overseerr:latest'
-    restart: 'always'
-    environment:
-      DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:overseerr'
-      TZ: 'Europe/Berlin'
-      PUID: 1000
-      PGID: 1000
-      TP_COMMUNITY_THEME: 'true'
-      TP_THEME: 'catppuccin-macchiato'
-    networks:
-      - 'proxy_network'
-      - 'usenet'
-    volumes:
-      - 'overseerr:/config'
-    labels:
-      traefik.enable: 'true'
-      traefik.docker.network: 'proxy_network'
-      subdomain: 'overseerr'
 
   nzbhydra:
     image: 'lscr.io/linuxserver/nzbhydra2:latest'
