@@ -46,11 +46,6 @@ endpoints:
     url: "https://plex.jonnyb.name/web/index.html#!/"
     <<: *default_endpoint_ssl
 
-  - name: Overseerr
-    group: media
-    url: "https://overseerr.jonnyb.name/"
-    <<: *default_endpoint_ssl
-
   - name: Unraid
     group: network
     url: "http://tower"
