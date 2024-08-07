@@ -41,6 +41,11 @@ endpoints:
     url: "https://tazed.club"
     <<: *default_endpoint_ssl
 
+  - name: Tazed Mail
+    group: websites
+    url: "https://mail.tazed.club"
+    <<: *default_endpoint_ssl
+
   - name: Plex
     group: media
     url: "https://plex.jonnyb.name/web/index.html#!/"
