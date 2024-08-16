@@ -7,6 +7,8 @@ services:
     mem_limit: 256mb
     memswap_limit: 256mb
     user: whoogle
+    env_file:
+      - whoogle.env
     networks:
       - proxy_network
     ports:
