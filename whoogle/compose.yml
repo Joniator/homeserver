@@ -1,0 +1,29 @@
+services:
+  whoogle:
+    image: ${WHOOGLE_IMAGE:-benbusby/whoogle-search}
+    container_name: whoogle-search
+    restart: unless-stopped
+    pids_limit: 50
+    mem_limit: 256mb
+    memswap_limit: 256mb
+    user: whoogle
+    networks:
+      - proxy_network
+    ports:
+      - 5000
+    security_opt:
+      - no-new-privileges
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /config/:size=10M,uid=927,gid=927,mode=1700
+      - /var/lib/tor/:size=15M,uid=927,gid=927,mode=1700
+      - /run/tor/:size=1M,uid=927,gid=927,mode=1700
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy_network
+      subdomain: whoogle
+
+networks:
+  proxy_network:
+    external: true
