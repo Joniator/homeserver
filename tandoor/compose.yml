@@ -1,0 +1,53 @@
+services:
+  db:
+    restart: always
+    image: postgres:16-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    env_file:
+      - ./tandoor.env
+    networks:
+      - default
+
+  web_recipes:
+    restart: always
+    image: vabene1111/recipes
+    env_file:
+      - tandoor.env
+    volumes:
+      - staticfiles:/opt/recipes/staticfiles
+      - nginx_config:/opt/recipes/nginx/conf.d
+      - mediafiles:/opt/recipes/mediafiles
+    depends_on:
+      - db
+    networks:
+      - default
+
+  nginx:
+    image: nginx:mainline-alpine
+    restart: always
+    env_file:
+      - ./tandoor.env
+    volumes:
+      - nginx_config:/etc/nginx/conf.d:ro
+      - staticfiles:/static:ro
+      - mediafiles:/media:ro
+    depends_on:
+      - web_recipes
+    networks:
+      - default
+      - proxy_network
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy_network
+      subdomain: tandoor
+
+volumes:
+  nginx_config:
+  staticfiles:
+  mediafiles:
+  postgres:
+
+networks:
+  proxy_network:
+    external: true

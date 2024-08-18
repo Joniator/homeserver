@@ -1,0 +1,27 @@
+services:
+  sabnzbd:
+    image: 'lscr.io/linuxserver/sabnzbd:latest'
+    restart: 'always'
+    environment:
+      TZ: 'Europe/Berlin'
+      DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:sabnzbd'
+      PUID: 1000
+      PGID: 1000
+      TP_COMMUNITY_THEME: 'true'
+      TP_THEME: 'catppuccin-macchiato'
+    networks:
+      - 'proxy_network'
+    volumes:
+      - 'config:/config'
+      - '/mnt/media:/mnt/media'
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: 'proxy_network'
+      subdomain: 'sabnzbd'
+
+volumes:
+  config:
+
+networks:
+  proxy_network:
+    external: true

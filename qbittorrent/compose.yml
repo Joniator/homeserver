@@ -1,0 +1,48 @@
+services:
+  qbittorrent:
+    image: 'lscr.io/linuxserver/qbittorrent:latest'
+    restart: 'always'
+    depends_on:
+      - protonwire
+    environment:
+      TZ: 'Europe/Berlin'
+      DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:qbittorrent'
+      PUID: 1000
+      PGID: 1000
+      TP_COMMUNITY_THEME: 'true'
+      TP_THEME: 'catppuccin-macchiato'
+    network_mode: 'service:protonwire'
+    volumes:
+      - 'config:/config'
+      - '/mnt/media:/mnt/media'
+
+  protonwire:
+    image: ghcr.io/tprasadtp/protonwire:latest
+    init: true
+    restart: always
+    environment:
+      PROTONVPN_SERVER: "NL#230"
+      DEBUG: "0"
+      KILL_SWITCH: "1"
+    networks:
+      - 'proxy_network'
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv4.conf.all.rp_filter: 2
+      net.ipv6.conf.all.disable_ipv6: 1
+    volumes:
+      - "./protonwire/private.key:/etc/protonwire/private-key:ro"
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: 'proxy_network'
+      traefik.http.services.protonwire.loadbalancer.server.port: '8080'
+      subdomain: 'qbittorrent'
+
+volumes:
+  config:
+
+networks:
+  usenet:
+  proxy_network:
+    external: true
