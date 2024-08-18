@@ -15,10 +15,8 @@ services:
     networks:
       - 'proxy_network'
     volumes:
-      - 'plex:/config'
-      - '/mnt/media/Videos/Filme:/movies:ro'
-      - '/mnt/media/Videos/Serien:/tv:ro'
-      - '/mnt/media/Musik:/music:ro'
+      - 'config:/config'
+      - '/mnt/media/:/mnt/media:ro'
     ports:
       - '32400:32400'
       - '32469:32469'
@@ -29,7 +27,7 @@ services:
       subdomain: 'plex'
 
 volumes:
-  plex:
+  config:
 
 networks:
   proxy_network:

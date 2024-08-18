@@ -9,7 +9,7 @@ services:
       - 'network'
       - 'proxy_network'
     volumes:
-      - 'gatus_data:/data'
+      - 'data:/data'
       - './gatus/config:/config'
     labels:
       traefik.enable: true
@@ -17,7 +17,7 @@ services:
       subdomain: up
 
 volumes:
-  gatus_data:
+  data:
 
 networks:
   network:

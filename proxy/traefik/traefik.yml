@@ -16,8 +16,10 @@ entryPoints:
       trustedIPs:
         - "172.21.0.1/32"
 
-log:
-  level: DEBUG
+# accessLog:
+#   addInternals: false
+# log:
+#   level: DEBUG
 
 providers:
   file:
