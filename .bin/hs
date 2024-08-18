@@ -1,0 +1,13 @@
+#! /usr/bin/env zsh
+
+DIR=/srv/infra
+SERVICE=$1
+shift
+
+( 
+  cd "$DIR"
+  SELECTED=$(find "$DIR" -maxdepth 2 -type f -name "compose.yml" -exec dirname {} \; | sed 's|.*/||' | uniq | sort | fzf --select-1 --query "$SERVICE")
+  cd $SELECTED
+  docker compose $@
+)
+

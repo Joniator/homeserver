@@ -21,7 +21,7 @@ services:
     init: true
     restart: always
     environment:
-      PROTONVPN_SERVER: "NL#230"
+      PROTONVPN_SERVER: "NL#289"
       DEBUG: "0"
       KILL_SWITCH: "1"
     networks:
