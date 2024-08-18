@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sed -i -e 's/<AuthenticationMethod>Basic</AuthenticationMethod>/<AuthenticationMethod>External/AuthenticationMethod>/g' /config/config.xml
-echo *** Set auth to external  ***

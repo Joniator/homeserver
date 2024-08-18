@@ -14,39 +14,9 @@ services:
       traefik.docker.network: 'proxy_network'
       subdomain: 'index'
 
-  radarr:
-    image: 'lscr.io/linuxserver/radarr:latest'
-    restart: 'always'
-    environment:
-      TZ: 'Europe/Berlin'
-      DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:radarr'
-      PUID: 1000
-      PGID: 1000
-      TP_COMMUNITY_THEME: 'true'
-      TP_THEME: 'catppuccin-macchiato'
-    networks:
-      - 'proxy_network'
-      - 'usenet'
-    volumes:
-      - 'radarr_config:/config'
-      - 'radarr_downloads:/downloads'
-      - '/mnt/media/Videos/Filme:/movies'
-    labels:
-      traefik.enable: 'true'
-      traefik.docker.network: 'proxy_network'
-      subdomain: 'radarr'
-
 volumes:
   overseerr:
   nzbhydra:
-
-  radarr_config:
-  radarr_downloads:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/mnt/media/Downloads/radarr'
 
 networks:
   usenet:
