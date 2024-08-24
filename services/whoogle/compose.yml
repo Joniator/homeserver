@@ -1,7 +1,6 @@
 services:
   whoogle:
     image: ${WHOOGLE_IMAGE:-benbusby/whoogle-search}
-    container_name: whoogle-search
     restart: unless-stopped
     pids_limit: 50
     mem_limit: 256mb
