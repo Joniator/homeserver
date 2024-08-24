@@ -11,7 +11,7 @@ services:
       TP_COMMUNITY_THEME: true
       TP_THEME: catppuccin-macchiato
     env_file:
-      - '.plex.env'
+      - '.env'
     networks:
       - 'proxy_network'
     volumes:
