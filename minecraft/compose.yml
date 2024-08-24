@@ -1,0 +1,19 @@
+services:
+  uwucraft:
+    image: itzg/minecraft-server
+    environment:
+      VERSION: 1.20.1
+      TYPE: FABRIC
+      DIFFICULTY: normal
+      ICON: https://media.discordapp.net/attachments/648957198105313312/1276564793653858374/ec0da49fa44b4496d3e5f0923e37a13f.jpg?ex=66c9fd1c&is=66c8ab9c&hm=d0f3447f5b56c8f0c8b1786b3c7255ab2a1e831419e914058741a392530119f5&=&format=webp&width=546&height=544
+      PACKWIZ_URL: https://raw.githubusercontent.com/tazedclub/UwUCraft/main/1.20/pack.toml
+      MOTD: "\u00a75UwU"
+      EULA: true
+    volumes:
+      - data:/data
+    ports:
+      - 25565:25565
+      - 24454:24454/udp
+
+volumes:
+  data:
