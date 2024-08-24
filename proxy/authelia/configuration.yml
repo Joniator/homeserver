@@ -33,6 +33,7 @@ access_control:
     # Public apps without auth
     ###
     - domain:
+        - 'notes.jonnyb.name'
         - 'my.jonnyb.name'
       policy: bypass
 
@@ -45,6 +46,7 @@ access_control:
         - 'plex.jonnyb.name'
         - 'read.jonnyb.name'
         - 'recipes.jonnyb.name'
+        - 'tandoor.jonnyb.name'
       policy: bypass
 
     ###
