@@ -10,8 +10,9 @@
         repo_url: git@github.com:Joniator/homeserver.git
       ansible.builtin.import_tasks:
         file: tasks/checkout.yml
+      when: not restart_only or git_pull_result.changed
 
     - name: Restart changed compose
       ansible.builtin.import_tasks:
         file: tasks/run_compose_up.yml
-      when: restart_all or git_pull_result.changed
+      when: restart_only or git_pull_result.changed

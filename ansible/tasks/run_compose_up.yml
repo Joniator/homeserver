@@ -1,7 +1,9 @@
 ---
 - name: Find docker-compose files
   ansible.builtin.find:
-    paths: "{{ homeserver_path }}/services"
+    paths: 
+      - "{{ homeserver_path }}/services"
+      - "{{ homeserver_path }}/games"
     patterns: compose.yml
     recurse: true
   register: compose_files
