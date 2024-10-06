@@ -1,0 +1,17 @@
+- name: Setup homeserver
+  hosts: homeserver
+  vars:
+    homeserver_path: /srv/infra
+
+  tasks:
+    - name: Ensure directory exists and checkout/pull git repo
+      vars:
+        repo_path: "{{ homeserver_path }}"
+        repo_url: git@github.com:Joniator/homeserver.git
+      ansible.builtin.import_tasks:
+        file: tasks/checkout.yml
+
+    - name: Restart changed compose
+      ansible.builtin.import_tasks:
+        file: tasks/run_compose_up.yml
+      when: git_pull_result.changed

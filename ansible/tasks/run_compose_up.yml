@@ -1,0 +1,13 @@
+---
+- name: Find docker-compose files
+  ansible.builtin.find:
+    paths: "{{ homeserver_path }}/services"
+    patterns: compose.yml
+    recurse: true
+  register: compose_files
+
+- name: Run docker compose up for each file
+  community.docker.docker_compose:
+    project_src: "{{ item.path | dirname }}"
+    state: present
+  loop: "{{ compose_files.files }}"
