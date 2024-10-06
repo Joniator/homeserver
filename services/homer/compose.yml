@@ -9,11 +9,8 @@ services:
       - 'proxy_network'
     volumes:
       - './homer:/www/assets'
-    ports:
-      - '8828:8080'
     labels:
       traefik.enable: true
-      traefik.docker.network: proxy_network
       subdomain: my
 
 volumes:
