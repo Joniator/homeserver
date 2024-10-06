@@ -1,6 +1,6 @@
 services:
   traefik:
-    image: 'traefik:v3.0'
+    image: 'traefik:v3.1'
     restart: 'always'
     dns: 192.168.188.1
     environment:
