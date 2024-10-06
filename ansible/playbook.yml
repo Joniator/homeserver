@@ -14,4 +14,4 @@
     - name: Restart changed compose
       ansible.builtin.import_tasks:
         file: tasks/run_compose_up.yml
-      when: git_pull_result.changed
+      when: restart_all or git_pull_result.changed
