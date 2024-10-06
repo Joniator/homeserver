@@ -26,8 +26,8 @@ providers:
     directory: '/etc/traefik/config'
   docker:
     exposedByDefault: false
-    network: 'homeserver_proxy'
-    defaultRule: 'Host(`{{ coalesce (index .Labels "subdomain") (.Name | trimSuffix "-homeserver") }}.jonnyb.name`)'
+    network: 'proxy_network'
+    defaultRule: 'Host(`{{ coalesce (index .Labels "subdomain") (.Name | trimSuffix "-homeserver") }}.{{ coalesce (index .Labels "domain") "jonnyb.name" }}`)'
 
 api:
   dashboard: true
