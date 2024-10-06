@@ -8,6 +8,6 @@
 
 - name: Run docker compose up for each file
   community.docker.docker_compose_v2:
-    project_src: "{{ item.path | dirname }}"
+    project_src: "{{ item | dirname }}"
     state: present
-  loop: "{{ compose_files.files }}"
+  loop: "{{ compose_files.files | map(attribute='path') }}"
