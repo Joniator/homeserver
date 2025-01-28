@@ -1,0 +1,12 @@
+services:
+  whoami:
+    image: traefik/whoami
+    networks:
+      - proxy_network
+    labels:
+      traefik.enable: true
+      subdomain: debug
+
+networks:
+  proxy_network:
+    external: true

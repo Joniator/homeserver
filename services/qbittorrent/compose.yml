@@ -6,11 +6,11 @@ services:
       - protonwire
     environment:
       TZ: 'Europe/Berlin'
-      DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:qbittorrent'
+      # DOCKER_MODS: 'ghcr.io/themepark-dev/theme.park:qbittorrent'
       PUID: 1000
       PGID: 1000
-      TP_COMMUNITY_THEME: 'true'
-      TP_THEME: 'catppuccin-macchiato'
+      # TP_COMMUNITY_THEME: 'true'
+      # TP_THEME: 'catppuccin-macchiato'
     network_mode: 'service:protonwire'
     volumes:
       - 'config:/config'
@@ -21,7 +21,7 @@ services:
     init: true
     restart: always
     environment:
-      PROTONVPN_SERVER: "NL#289"
+      PROTONVPN_SERVER: "NL#377"
       DEBUG: "0"
       KILL_SWITCH: "1"
     networks:

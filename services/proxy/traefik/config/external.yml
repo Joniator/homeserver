@@ -20,6 +20,11 @@ http:
       middlewares:
         - nodered_headers
 
+    starlight-local:
+      rule: 'Host(`starlight.jonnyb.name`)'
+      service: 'starlight-local'
+
+
   services:
     unraid:
       loadBalancer:
@@ -41,3 +46,8 @@ http:
         serversTransport: trusted
         servers:
           - url: 'https://homeassistant:1880'
+
+    starlight-local:
+      loadBalancer:
+        servers:
+          - url: 'http://homeserver:4321'

@@ -28,13 +28,24 @@ access_control:
     - name: 'internal'
       networks:
         - '192.168.188.0/24'
+
+
   rules:
+    - domain:
+        - '*.jonnyb.name'
+      networks:
+        - 192.168.188.89
+      policy: bypass
+
     ###
     # Public apps without auth
     ###
     - domain:
-        - 'notes.jonnyb.name'
+        - 'amethystcraft.jonnyb.name'
+        - 'docs.jonnyb.name'
+        - 'immich.jonnyb.name'
         - 'my.jonnyb.name'
+        - 'notes.jonnyb.name'
       policy: bypass
 
     ###
@@ -66,7 +77,6 @@ access_control:
         - 'jonnyb.name'
         - '*.jonnyb.name'
       policy: one_factor
-
 
 session:
   name: 'authelia_session'

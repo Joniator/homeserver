@@ -1,0 +1,22 @@
+services:
+  kavita:
+    image: 'jvmilazz0/kavita:latest'
+    restart: 'always'
+    environment:
+      TZ: 'Europe/Berlin'
+    networks:
+      - 'proxy_network'
+    volumes:
+      - 'config:/kavita/config'
+      - '/mnt/media/Books:/books'
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: 'proxy_network'
+      subdomain: 'kavita'
+
+volumes:
+  config:
+
+networks:
+  proxy_network:
+    external: true

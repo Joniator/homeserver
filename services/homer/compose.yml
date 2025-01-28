@@ -13,9 +13,6 @@ services:
       traefik.enable: true
       subdomain: my
 
-volumes:
-  mealie:
-
 networks:
   proxy_network:
     external: true

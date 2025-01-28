@@ -1,0 +1,35 @@
+services:
+  archive:
+    image: 'ghcr.io/paperless-ngx/paperless-ngx:latest'
+    env_file:
+      - '.env'
+    networks:
+      - 'redis'
+      - 'proxy_network'
+    volumes:
+      - 'data:/data'
+      - 'config:/config'
+      - 'downloads:/downloads'
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: 'proxy_network'
+      subdomain: 'archive'
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    networks:
+      - redis
+    volumes:
+      - redis:/data
+
+networks:
+  redis:
+  proxy_network:
+    external: true
+
+volumes:
+  data:
+  config:
+  downloads:
+  redis:
