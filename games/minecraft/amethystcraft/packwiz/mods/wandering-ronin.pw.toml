@@ -1,0 +1,13 @@
+name = "Wandering Ronin"
+filename = "wandering_ronin-1.20.1-FABRIC-1.0.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/AwARuZIU/versions/X0KLd77Q/wandering_ronin-1.20.1-FABRIC-1.0.2.jar"
+hash-format = "sha1"
+hash = "534a0de2c336fc6834327c7e8f6ac30d02aefb5c"
+
+[update]
+[update.modrinth]
+mod-id = "AwARuZIU"
+version = "X0KLd77Q"

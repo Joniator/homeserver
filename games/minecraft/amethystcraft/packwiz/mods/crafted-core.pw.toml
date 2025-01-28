@@ -1,0 +1,13 @@
+name = "CraftedCore"
+filename = "craftedcore-5.6.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d16afe1f6272894344701170e717de259e6d2ce7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5897983
+project-id = 923377

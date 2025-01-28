@@ -1,0 +1,13 @@
+name = "Kal's Grimdark Armor"
+filename = "Grimdark-Armor-v2-6-13.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f3f67498d7db833f8b82f9e9242a15c20330b681"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4466757
+project-id = 402344

@@ -1,0 +1,13 @@
+name = "Forgotten Graves"
+filename = "forgottengraves-3.2.14+1.20.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4ea8889e600b53befab4b297a057c3b50e8ec7c2"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5696500
+project-id = 550480

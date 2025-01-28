@@ -1,0 +1,13 @@
+name = "Origins: Celestial"
+filename = "origins-celestial-1.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/8DPmOaqQ/versions/865PQdGA/origins-celestial-1.3.jar"
+hash-format = "sha1"
+hash = "96b63d6a8796b571ed294eaf21efa4e36fa9b1b0"
+
+[update]
+[update.modrinth]
+mod-id = "8DPmOaqQ"
+version = "865PQdGA"

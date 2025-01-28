@@ -1,0 +1,13 @@
+name = "Pigirls"
+filename = "Pigirls v1.1.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "406ffc6a18e8f945ea5fd5e474373472ed9899d8"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 4744636
+project-id = 832402

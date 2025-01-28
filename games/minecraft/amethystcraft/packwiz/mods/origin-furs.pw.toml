@@ -1,0 +1,13 @@
+name = "Origin Furs"
+filename = "originfur-1.0.10.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/T0alwZVT/versions/YsNh3WnN/originfur-1.0.10.jar"
+hash-format = "sha1"
+hash = "8f52c75f516f45b462a34e1e2555dce8a9eae200"
+
+[update]
+[update.modrinth]
+mod-id = "T0alwZVT"
+version = "YsNh3WnN"

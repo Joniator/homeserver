@@ -1,0 +1,16 @@
+name = "Amethystcraft"
+author = "melu"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "4b7bf85505977e7590456678e81a1a6ce130c4288391f62262f866f3a281e820"
+
+[versions]
+fabric = "0.16.9"
+minecraft = "1.20.1"
+
+[options]
+acceptable-game-versions = ["1.19.4"]

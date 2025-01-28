@@ -1,0 +1,37 @@
+services:
+  amethystcraft:
+    image: itzg/minecraft-server
+    environment:
+      VERSION: 1.20.1
+      TYPE: FABRIC
+      DIFFICULTY: hard
+      ICON: 
+      PACKWIZ_URL: http://packwiz:8080/pack.toml
+      MOTD: "\u00a75UwU"
+      EULA: true
+    volumes:
+      - data:/data
+    networks:
+      - internal
+    ports:
+      - 25565:25565
+      - 24454:24454/udp
+
+  packwiz:
+    build: .
+    volumes:
+      - ./packwiz:/pack
+    networks:
+      - internal
+      - proxy_network
+    labels:
+      traefik.enable: true
+      subdomain: amethystcraft
+
+volumes:
+  data:
+      
+networks:
+  internal:
+  proxy_network:
+    external: true

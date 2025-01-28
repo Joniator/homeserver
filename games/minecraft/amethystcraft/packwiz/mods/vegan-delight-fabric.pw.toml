@@ -1,0 +1,13 @@
+name = "Vegan Delight - Fabric/Neoforge"
+filename = "VeganDelightFabric-1.1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/vtNhfMsL/versions/NtTxqoSb/VeganDelightFabric-1.1.0.jar"
+hash-format = "sha1"
+hash = "3fcfc1e1c790007d4cab939e44e52189551b752f"
+
+[update]
+[update.modrinth]
+mod-id = "vtNhfMsL"
+version = "NtTxqoSb"

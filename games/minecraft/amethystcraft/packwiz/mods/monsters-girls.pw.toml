@@ -1,0 +1,13 @@
+name = "Monsters & Girls"
+filename = "monsters-girls-fabric-1.20.1-1.2.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/FkRFuWlB/versions/RsJwKWBJ/monsters-girls-fabric-1.20.1-1.2.3.jar"
+hash-format = "sha1"
+hash = "60f4b3a5dd754aaac101b5414a124a55e82c82d1"
+
+[update]
+[update.modrinth]
+mod-id = "FkRFuWlB"
+version = "RsJwKWBJ"

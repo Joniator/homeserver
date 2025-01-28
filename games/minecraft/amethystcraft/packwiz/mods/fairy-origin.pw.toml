@@ -1,0 +1,13 @@
+name = "Origins: Fairy"
+filename = "fairy-origin-2.0.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/itPC3Rsw/versions/tsVk5HaK/fairy-origin-2.0.1.jar"
+hash-format = "sha1"
+hash = "17a0a6d8c4fd96a1dd8dfb17089d40c88baa5a73"
+
+[update]
+[update.modrinth]
+mod-id = "itPC3Rsw"
+version = "tsVk5HaK"

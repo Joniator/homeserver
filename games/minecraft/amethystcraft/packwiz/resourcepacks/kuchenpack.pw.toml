@@ -1,0 +1,13 @@
+name = "KuchenPack"
+filename = "KuchenPack_1.21_v5.7.zip"
+side = "client"
+
+[download]
+url = "https://cdn.modrinth.com/data/ArGXnTqr/versions/UCxkFSPt/KuchenPack_1.21_v5.7.zip"
+hash-format = "sha1"
+hash = "04e7f47f0d8509668f034c69407ec4295d8191d8"
+
+[update]
+[update.modrinth]
+mod-id = "ArGXnTqr"
+version = "UCxkFSPt"
