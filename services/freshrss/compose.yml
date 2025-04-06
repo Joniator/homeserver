@@ -1,0 +1,18 @@
+services:
+  freshrss:  
+    image: 'freshrss/freshrss'
+    volumes:
+      - 'config:/var/www/FreshRSS/data'
+    networks:
+      - 'proxy_network'
+    labels:
+      traefik.enable: 'true'
+      traefik.docker.network: 'proxy_network'
+      subdomain: 'freshrss'
+
+volumes:
+  config:
+
+networks:
+  proxy_network:
+    external: true

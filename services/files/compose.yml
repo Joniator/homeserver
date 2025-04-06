@@ -1,0 +1,23 @@
+services:
+  filebrowser:
+    image: 'filebrowser/filebrowser'
+    restart: 'always'
+    environment:
+      TZ: 'Europe/Berlin'
+    networks:
+      - 'proxy_network'
+    volumes:
+      - 'db:/filebrowser.db'
+      - '/mnt/media:/srv'
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy_network
+      subdomain: files
+
+volumes:
+  db:
+
+networks:
+  proxy_network:
+    external: true
+

@@ -41,11 +41,11 @@ access_control:
     # Public apps without auth
     ###
     - domain:
-        - 'amethystcraft.jonnyb.name'
         - 'docs.jonnyb.name'
+        - 'files.jonnyb.name'
         - 'immich.jonnyb.name'
         - 'my.jonnyb.name'
-        - 'notes.jonnyb.name'
+        - 'wiki.jonnyb.name'
       policy: bypass
 
     ###

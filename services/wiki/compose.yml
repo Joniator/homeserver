@@ -1,0 +1,32 @@
+services:
+  bookstack:
+    image: lscr.io/linuxserver/bookstack:latest
+    env_file:
+      - .app.env
+    volumes:
+      - config:/config
+    networks:
+      - proxy_network
+      - db
+    labels:
+      traefik.enable: true
+      subdomain: wiki
+
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    env_file:
+      - .db.env
+    networks:
+      - db
+    volumes:
+      - db:/config
+
+
+networks:
+  db:
+  proxy_network:
+    external: true
+
+volumes:
+  config:
+  db:
